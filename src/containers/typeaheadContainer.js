@@ -96,8 +96,8 @@ function typeaheadContainer(Component) {
       this.props.autoFocus && this.focus();
     }
 
-    componentWillReceiveProps(nextProps) {
-      const {labelKey, multiple, selected} = nextProps;
+    componentDidUpdate(prevProps) {
+      const {labelKey, multiple, selected} = prevProps;
 
       // If new selections are passed via props, treat as a controlled input.
       if (selected && !isEqual(selected, this.state.selected)) {
